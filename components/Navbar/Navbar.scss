@@ -1,0 +1,178 @@
+// import variables & mixins from styles folder in assets folder
+@import "../../assets/styles/_variables.scss";
+@import "../../assets/styles/_mixins.scss";
+
+.site-header {
+  border-bottom: 1px solid $border-color;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 111;
+  background: $main-white; 
+
+  &__navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+  }
+
+  &__navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  &__logo-container {
+    margin-right: 20px;
+  }
+  .main-menu {
+    @include lg-md-layout {
+      display: none;
+    }
+  }
+  &__logo, video {
+    display: block;
+    width: 100px;
+  }
+
+  video {
+    &::-webkit-media-controls-panel {
+      display: none!important;
+      -webkit-appearance: none;
+    }
+    
+    &::--webkit-media-controls-play-button {
+      display: none!important;
+      -webkit-appearance: none;
+    }
+    
+    &::-webkit-media-controls-start-playback-button {
+      display: none!important;
+      -webkit-appearance: none;
+    }
+  }
+
+  &__links {
+    display: none;
+    @include atLgScreen {
+      display: flex;
+      align-items: center; 
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding-right: 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $main-black;
+    text-transform: uppercase;
+    @include atXLScreen {
+      font-size: 1rem;
+    }
+  }
+
+  &__icons-list {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+  }
+
+  &__icons-item {
+    font-size: 1.3rem;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    line-height: 1.2;
+
+    .dropdown {
+      .dropdown-toggle {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .site-header__icon {
+      padding: 0.2rem 0.5rem;
+      display: block;
+
+      @include lg-md-layout {
+        padding: 0.2rem 0.3rem;
+      }
+
+      .icon-title {
+        display: block;
+        font-size: 11px;
+      }
+    }
+
+    i {
+      color: #2c3e50;
+    }
+
+    button {
+      border: 0;
+    background: transparent;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .ant-dropdown-link {
+      position: relative;
+      svg, i {
+        &:last-child {
+          padding: 0;
+          height: 15px;
+          width: 15px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    // &:nth-child(2) {
+    //   margin: 0 1rem;
+    //   position: relative;
+    // }
+
+    // &:nth-child(3) {
+    //   font-size: 1.3rem;
+    //   cursor: pointer;
+    //   display: none;
+    //   @include lg-md-layout {
+    //     display: block;
+    //   }
+    // } 
+  }
+
+  &__cart-count {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    font-size: 0.7rem;
+    background: $theme-color;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+  }
+
+  &__toggle {
+    display: none;
+    @include lg-md-layout {
+      display: block;
+      padding: 0.2rem 0.3rem;
+
+      .icon-title {
+        display: block;
+        font-size: 11px;
+      }
+
+    }
+  }
+}
+
+
